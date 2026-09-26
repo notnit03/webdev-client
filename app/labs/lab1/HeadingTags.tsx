@@ -2,20 +2,6 @@ export default function HeadingTags() {
   return (
     <div id="wd-h-tag">
       <h4>Heading Tags</h4>
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
-      <div id="wd-ai-headings">
-        <h4>Lab notes</h4>
-        <p>Notes collected while working through this lab section.</p>
-        <h5>What I built</h5>
-        <p>A set of heading tags showing the six available sizes.</p>
-        <h6>Next step</h6>
-        <p>Move on to paragraph tags and vertical spacing.</p>
-      </div>
       Text documents are often broken up into several sections and subsections.
       Each section is usually prefaced with a short title or heading that
       attempts to summarize the topic of the section it precedes. For instance
@@ -28,6 +14,20 @@ export default function HeadingTags() {
       is the largest heading and h6 is the smallest heading. A{" "}
       <span id="wd-inline-span">span</span> sits in this sentence without
       starting a new line.
+      <h1>h1</h1>
+      <h2>h2</h2>
+      <h3>h3</h3>
+      <h4>h4</h4>
+      <h5>h5</h5>
+      <h6>h6</h6>
+      <div id="wd-ai-headings">
+        <h4>Lab notes</h4>
+        <p>Notes collected while working through this lab section.</p>
+        <h5>What I built</h5>
+        <p>A set of heading tags showing the six available sizes.</p>
+        <h6>Next step</h6>
+        <p>Move on to paragraph tags and vertical spacing.</p>
+      </div>
       <div id="wd-your-heading">
         <h4>Nithya Vangala</h4>
         <p>
