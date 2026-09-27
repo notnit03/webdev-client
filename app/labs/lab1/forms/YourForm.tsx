@@ -117,8 +117,8 @@ export default function YourForm() {
         <select id="wd-your-major" defaultValue="MSCS">
           <option value="MSCS">MS Computer Science</option>
           <option value="MSDS">MS Data Science</option>
-          <option value="MSIS">MS Information Systems</option>
           <option value="MSCY">MS Cybersecurity</option>
+          <option value="MSIS">MS Information Systems</option>
         </select>
         <br />
         <label htmlFor="wd-your-topics">
