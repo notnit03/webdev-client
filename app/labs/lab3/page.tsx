@@ -34,6 +34,8 @@ import ServerComponentDemo from "./ServerComponentDemo";
 import Add from "./Add";
 import Square from "./Square";
 import Highlight from "./Highlight";
+import PathParameters from "./PathParameters";
+import TodoList from "./todos/TodoList";
 export default function Lab3() {
   console.log("Hello World!");
   return (
@@ -90,6 +92,8 @@ export default function Lab3() {
       <Highlight>Halloween is coming soon</Highlight>
       <br />
       <Highlight>Children can be any JSX</Highlight>
+      <PathParameters />
+      <TodoList />
     </div>
   );
 }
