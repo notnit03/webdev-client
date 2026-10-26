@@ -1,27 +1,34 @@
 import Link from "next/link";
+import * as db from "../../../../database";
 export default async function AssignmentEditor({
   params,
 }: {
-  params: Promise<{ cid: string }>;
+  params: Promise<{ cid: string; aid: string }>;
 }) {
-  const { cid } = await params;
+  const { cid, aid } = await params;
+  const assignment = db.assignments.find((a) => a._id === aid);
   const input = "w-full rounded border border-neutral-300 px-3 py-2";
   const row = "mb-4 flex flex-col gap-2 md:flex-row md:gap-4";
   const label = "md:w-1/3 md:pt-2 md:text-right";
   return (
     <div id="wd-assignments-editor" className="max-w-3xl">
       <label htmlFor="wd-name" className="mb-1 block">Assignment Name</label>
-      <input id="wd-name" defaultValue="A1 - ENV + HTML" className={`${input} mb-4`} />
+      <input
+        id="wd-name"
+        defaultValue={assignment?.title ?? ""}
+        className={`${input} mb-2`}
+      />
+      <p className="mb-4 text-sm text-neutral-600">Assignment id: {aid}</p>
       <textarea
         id="wd-description"
         rows={8}
-        defaultValue="The assignment is available online. Submit a link to the landing page of your Web application running on Vercel."
+        defaultValue={assignment?.description ?? ""}
         className={`${input} mb-4`}
       />
       <div className={row}>
         <label htmlFor="wd-points" className={label}>Points</label>
         <div className="flex-1">
-          <input id="wd-points" defaultValue={125} className={input} />
+          <input id="wd-points" defaultValue={assignment?.points ?? 100} className={input} />
         </div>
       </div>
       <div className={row}>
@@ -80,15 +87,15 @@ export default async function AssignmentEditor({
           <label htmlFor="wd-assign-to" className="mb-1 block font-semibold">Assign to</label>
           <input id="wd-assign-to" defaultValue="Everyone" className={`${input} mb-3`} />
           <label htmlFor="wd-due-date" className="mb-1 block font-semibold">Due</label>
-          <input type="date" id="wd-due-date" defaultValue="2026-09-27" className={`${input} mb-3`} />
+          <input type="date" id="wd-due-date" defaultValue={assignment?.due} className={`${input} mb-3`} />
           <div className="flex gap-3">
             <div className="flex-1">
               <label htmlFor="wd-available-from" className="mb-1 block font-semibold">Available from</label>
-              <input type="date" id="wd-available-from" defaultValue="2026-09-20" className={input} />
+              <input type="date" id="wd-available-from" defaultValue={assignment?.available} className={input} />
             </div>
             <div className="flex-1">
               <label htmlFor="wd-available-until" className="mb-1 block font-semibold">Until</label>
-              <input type="date" id="wd-available-until" defaultValue="2026-10-04" className={input} />
+              <input type="date" id="wd-available-until" defaultValue={assignment?.due} className={input} />
             </div>
           </div>
         </div>

@@ -22,6 +22,12 @@
         "name": "Rocket Engine Types",
         "description": "Overview of different types of rocket engines.",
         "module": "M101"
+      },
+      {
+        "_id": "L901",
+        "name": "My favorite rocket company is SpaceX",
+        "description": "SpaceX builds reusable rockets.",
+        "module": "M101"
       }
     ]
   },
@@ -47,6 +53,12 @@
         "_id": "L203",
         "name": "Combustion Instability",
         "description": "Understanding combustion instability and mitigation.",
+        "module": "M102"
+      },
+      {
+        "_id": "L204",
+        "name": "Nozzle Design",
+        "description": "How nozzle shape affects thrust.",
         "module": "M102"
       }
     ]
