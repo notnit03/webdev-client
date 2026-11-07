@@ -1,4 +1,5 @@
 "use client";
+import "@/app/labs/lab2/tailwind/utilities.css";
 import ClickEvent from "./ClickEvent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
@@ -9,6 +10,9 @@ import StringStateVariables from "./StringStateVariables";
 import DateStateVariable from "./DateStateVariable";
 import ObjectStateVariable from "./ObjectStateVariable";
 import ArrayStateVariable from "./ArrayStateVariable";
+import ParentStateComponent from "./ParentStateComponent";
+import PropDrilling from "./PropDrilling";
+import UrlEncoding from "./UrlEncoding";
 export default function Lab4() {
   const sayHello = (message: string) => {
     alert(message);
@@ -37,6 +41,9 @@ export default function Lab4() {
       <DateStateVariable />
       <ObjectStateVariable />
       <ArrayStateVariable />
+      <ParentStateComponent />
+      <PropDrilling />
+      <UrlEncoding />
     </div>
   );
 }
