@@ -16,6 +16,7 @@ import UrlEncoding from "./UrlEncoding";
 import ContextExamples from "./context/ContextExamples";
 import ZustandExamples from "./zustand/ZustandExamples";
 import ReduxExamples from "./redux/ReduxExamples";
+import Effect from "./Effect";
 export default function Lab4() {
   const sayHello = (message: string) => {
     alert(message);
@@ -50,6 +51,7 @@ export default function Lab4() {
       <ContextExamples />
       <ZustandExamples />
       <ReduxExamples />
+      <Effect />
     </div>
   );
 }
