@@ -2,49 +2,42 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import * as db from "../../database";
+import * as client from "../client";
 import { useAccountContext } from "../AccountContext";
 export default function Signup() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({ username: "", password: "" });
+  const [error, setError] = useState("");
   const { setCurrentUser } = useAccountContext();
   const router = useRouter();
-  const signup = () => {
-    if (!username || !password) return;
-    setCurrentUser({
-      ...db.users[0],
-      _id: crypto.randomUUID(),
-      username,
-      password,
-      firstName: "",
-      lastName: "",
-      email: "",
-      role: "STUDENT",
-      loginId: "",
-      section: "",
-      lastActivity: "",
-      totalActivity: "",
-    });
-    router.push("/account/profile");
+  const signup = async () => {
+    if (!user.username || !user.password) return;
+    try {
+      const current = await client.signup(user);
+      setCurrentUser(current);
+      router.push("/account/profile");
+    } catch {
+      setError("Username already in use");
+    }
   };
   const input = "mb-2 w-full rounded border border-neutral-300 px-3 py-2";
   return (
     <div id="wd-signup-screen" className="max-w-sm">
       <h1 className="mb-3 text-2xl font-semibold">Sign up</h1>
+      {error && <p className="mb-2 rounded bg-red-100 px-3 py-2 text-red-800">{error}</p>}
       <input
         id="wd-username"
         placeholder="username"
         className={`wd-username ${input}`}
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={user.username}
+        onChange={(e) => setUser({ ...user, username: e.target.value })}
       />
       <input
         id="wd-password"
         placeholder="password"
         type="password"
         className={`wd-password ${input}`}
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        value={user.password}
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
       <button
         type="button"
